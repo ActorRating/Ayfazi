@@ -1,6 +1,7 @@
 import { CosmicJokeSection } from "@/components/CosmicJokeSection";
 import { Footer } from "@/components/Footer";
 import { MoonCalendar } from "@/components/MoonCalendar";
+import { MoonInsights } from "@/components/MoonInsights";
 import { Navbar } from "@/components/Navbar";
 import { ZodiacGrid } from "@/components/ZodiacGrid";
 
@@ -17,6 +18,7 @@ export default function Home() {
         </div>
 
         <MoonCalendar />
+        <MoonInsights />
         <CosmicJokeSection />
         <ZodiacGrid />
       </main>

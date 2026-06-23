@@ -91,6 +91,38 @@ export function formatTime(hours: number, minutes: number): string {
   return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
 }
 
+export type UpcomingPhaseEvent = {
+  daysFromNow: number;
+  date: Date;
+  phaseName: string;
+  emoji: string;
+};
+
+export function getUpcomingPhaseEvents(
+  from: Date,
+  days = 7,
+): UpcomingPhaseEvent[] {
+  const events: UpcomingPhaseEvent[] = [];
+  let lastPhase = getPhaseName(getMoonAge(from));
+
+  for (let i = 1; i <= days; i++) {
+    const d = new Date(from);
+    d.setDate(d.getDate() + i);
+    const age = getMoonAge(d);
+    const phaseName = getPhaseName(age);
+    if (phaseName !== lastPhase) {
+      events.push({
+        daysFromNow: i,
+        date: d,
+        phaseName,
+        emoji: getEmoji(age),
+      });
+      lastPhase = phaseName;
+    }
+  }
+  return events;
+}
+
 export function getMoonTimes(date: Date): { rise: string; set: string } {
   const age = getMoonAge(date);
   const jd = toJulian(date);

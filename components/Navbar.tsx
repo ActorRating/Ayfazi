@@ -1,5 +1,6 @@
 const links = [
   { href: "#ay-takvimi", label: "Ay Takvimi", short: "Takvim" },
+  { href: "#yorumlar", label: "Yorumlar", short: "Yorum" },
   { href: "#gunun-sakasi", label: "Günün Şakası", short: "Şaka" },
   { href: "#burclar", label: "Burçlar", short: "Burçlar" },
 ];
