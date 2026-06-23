@@ -1,5 +1,8 @@
-import { getMoonInfo, getMoonTimes, formatAge, formatPercent } from "@/lib/moon";
+"use client";
+
+import { getMoonInfo, formatAge, formatPercent } from "@/lib/moon";
 import { formatTurkishDate, formatTurkishShort } from "@/lib/data/moon-phases";
+import { useMoonTimes } from "@/hooks/useMoonTimes";
 import { MoonIcon } from "./MoonIcon";
 
 type MoonDetailCardProps = {
@@ -10,9 +13,9 @@ type MoonDetailCardProps = {
 
 export function MoonDetailCard({ date, label, large }: MoonDetailCardProps) {
   const info = getMoonInfo(date);
-  const times = getMoonTimes(date);
+  const times = useMoonTimes(date);
   const title = label ?? formatTurkishDate(date);
-  const moonSize = large ? 72 : 48;
+  const moonSize = large ? 80 : 48;
 
   return (
     <div
@@ -44,7 +47,7 @@ export function MoonDetailCard({ date, label, large }: MoonDetailCardProps) {
         <MoonIcon
           illumination={info.illumination}
           waxing={info.waxing}
-          size={large ? 96 : 56}
+          size={large ? 104 : 56}
           className="hidden sm:block"
         />
         <p
@@ -75,17 +78,27 @@ export function MoonDetailCard({ date, label, large }: MoonDetailCardProps) {
         </div>
         <div className={large ? "text-center" : undefined}>
           <p className="text-xs text-slate-500">Ay batışı</p>
-          <p className="mt-1 text-base font-medium text-white sm:text-lg">
+          <p
+            className={`mt-1 text-base font-medium text-white sm:text-lg ${times.loading ? "opacity-50" : ""}`}
+          >
             {times.set}
           </p>
         </div>
         <div className={large ? "text-center" : undefined}>
           <p className="text-xs text-slate-500">Ay doğuşu</p>
-          <p className="mt-1 text-base font-medium text-white sm:text-lg">
+          <p
+            className={`mt-1 text-base font-medium text-white sm:text-lg ${times.loading ? "opacity-50" : ""}`}
+          >
             {times.rise}
           </p>
         </div>
       </div>
+
+      {times.source === "metno" && (
+        <p className="mt-3 text-center text-[10px] text-slate-600">
+          İstanbul · MET Norway
+        </p>
+      )}
     </div>
   );
 }

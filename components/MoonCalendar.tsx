@@ -160,13 +160,13 @@ export function MoonCalendar() {
                     <MoonIcon
                       illumination={info.illumination}
                       waxing={info.waxing}
-                      size={18}
+                      size={22}
                       className="sm:hidden"
                     />
                     <MoonIcon
                       illumination={info.illumination}
                       waxing={info.waxing}
-                      size={22}
+                      size={28}
                       className="hidden sm:block"
                     />
                   </>
@@ -175,13 +175,13 @@ export function MoonCalendar() {
                     <MoonIcon
                       illumination={info.illumination}
                       waxing={info.waxing}
-                      size={26}
+                      size={32}
                       className="sm:hidden"
                     />
                     <MoonIcon
                       illumination={info.illumination}
                       waxing={info.waxing}
-                      size={32}
+                      size={40}
                       className="hidden sm:block"
                     />
                   </>

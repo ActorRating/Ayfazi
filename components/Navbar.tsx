@@ -11,9 +11,9 @@ export function Navbar() {
       <nav className="safe-px mx-auto flex w-full max-w-5xl min-w-0 flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-3.5">
         <a
           href="#"
-          className="shrink-0 text-center text-lg font-semibold tracking-tight text-white sm:text-left"
+          className="shrink-0 text-center text-xl font-semibold tracking-tight text-white sm:text-left sm:text-2xl"
         >
-          Ayfazi
+          AFYAZI
         </a>
 
         <ul className="flex w-full min-w-0 items-center justify-center gap-1 sm:w-auto sm:justify-end">
