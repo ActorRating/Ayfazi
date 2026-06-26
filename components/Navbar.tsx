@@ -13,7 +13,7 @@ export function Navbar() {
           href="#"
           className="shrink-0 text-center text-xl font-semibold tracking-tight text-white sm:text-left sm:text-2xl"
         >
-          AFYAZI
+          AYFAZI
         </a>
 
         <ul className="flex w-full min-w-0 items-center justify-center gap-1 sm:w-auto sm:justify-end">
